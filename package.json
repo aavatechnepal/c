@@ -1,6 +1,9 @@
 {
   "name": "accounting-software-web-base",
   "version": "1.0.0",
+  "engines": {
+    "node": ">=14.20.1"
+  },
   "description": "web base accounting software",
   "main": "index.js",
   "scripts": {
