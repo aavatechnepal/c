@@ -1,0 +1,124 @@
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/CSS/createChart.css" />
+    <link rel="stylesheet" href="/CSS/listchart.css" />
+    <title>createChart</title>
+  </head>
+
+  <body>
+
+    <section class="container searchbar">
+      <input type="text" name="search" id="" placeholder="Search" />
+
+    </section>
+
+    <section class="createChart container">
+
+      <div class="chartform">
+        <h3 class="chartheading"> Create chart of Accounts</h3>
+
+        <form action="/createChart" method="post">
+          <input type="text" name="description"id=""placeholder="Description" autocomplete="off"/>
+          <input type="text" name="account1" id="" placeholder="Account1" autocomplete="off" />
+          {{! <select name="" id="">
+                    <option value="" name="account1">SPL</option>
+                    <option value="" name="account1">SFL</option>
+                    <option value="" name="account1">sdr</option>
+                    <option value="" name="account1">demo</option>
+                </select> }}
+          <input type="text" name="account2" id="" placeholder="Account2" autocomplete="off" />
+          {{! <select name="" id="">
+                    <option value="" name="account2">Assest</option>
+                    <option value="" name="account2">Creditors</option>
+                    <option value="" name="account2">Debtors</option>
+                    <option value="" name="account2">adding more</option>
+                </select> }}
+          <button class="addBtn" type="submit">Add</button>
+        </form>
+
+        <div class="message">
+          <p class="msg">{{message}}</p>
+          <p class="error">{{error}}</p>
+          <a href="/listchart">See the chart of Account list</a>
+        </div>
+      </div>
+
+      <div class="table">
+
+
+      <table border="2px">
+        <thead>
+          <tr>
+            <th>Descriptioin</th>
+            <th>Account Type 1</th>
+            <th>Account Type 2</th>
+            <th>Actions</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>staff Salary</td>
+            <td>SPL</td>
+            <td>Assets</td>
+            <td>Edit</td>
+            <td>Delete</td>
+          </tr>
+          <tr>
+            <td>Rent</td>
+            <td>SPL</td>
+            <td>Credior</td>
+            <td>Edit</td>
+            <td>Delete</td>
+          </tr>
+          <tr>
+            <td>Bank</td>
+            <td>SFP</td>
+            <td>Debtor</td>
+            <td>Edit</td>
+            <td>Delete</td>
+          </tr>
+          {{#each showData}}
+            <tr>
+              <td>{{this.description}}</td>
+              <td>{{this.account1}}</td>
+              <td>{{this.account2}}</td>
+              <td><a class="edit" href="/edit/{{this._id}}"><img class="editicon" src="/IMG/editicon.png" alt="" />Edit</a></td>
+              <td><a class="delete" href="/delete/{{this._id}}"> <img class="editicon"src="/IMG/deleteicon.png"alt=""/>Delete</a></td>
+
+            </tr>
+          {{/each}}
+
+        </tbody>
+      </table>
+
+      </div>
+
+    </section>
+
+    {{!--
+        <table border="1px">
+            <thead>
+                <th>Descriptioin</th>
+                <th>Account Type 1</th>
+                <th>Account Type 2</th>
+            </thead>
+
+            <tbody>
+                {{#each showData}}
+                <tr>
+                    <td>{{this.description}}</td>
+                    <td>{{this.account1}}</td>
+                    <td>{{this.account2}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table> --}}
+
+  </body>
+
+</html>
