@@ -94,7 +94,8 @@ app.post('/login',async(req, res)=>{
     const databaseData = await userData.findOne({email:checkEmil});
     const isMatch = await bcrypt.compare(userPassword, databaseData.password)
     if(isMatch){
-        res.render('addNewHome')
+        // res.render('addNewHome')
+        res.render('mainDashboard')
     }
     else{
         res.render('login',{
@@ -207,6 +208,7 @@ app.post('/createChart',async(req,res)=>{
         // res.send('your data added ')
         const showData = await createChartData.find({});
         res.render('createChart',{
+        // res.redirect('createChart',{
             showData : showData,
             message : 'Data Added Successfully !'
         })
@@ -288,25 +290,6 @@ app.use((req,res)=>{
     res.status(400).render('404page');
 
 })
-
-//for search filtering
-
-app.get('/search/:key', async (req,res)=>{
-    let data = await createChartData.find({
-        "$or" : [
-            {description : {$regex:req.params.key}}
-        ]
-
-    })
-})
-
-
-
-
-
-
-
-
 
 
 

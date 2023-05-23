@@ -18,6 +18,10 @@
     padding-inline: 20px;
 }
 
+.mainlogo{
+    width: 7%;
+}
+
 
 
 .navbar{
@@ -48,6 +52,10 @@
     color: var(--primary-color);
     transition: 0.8;
     border-bottom: 1px solid green;
+}
+.menubar{
+    display: none;
+    width: 25px;
 }
 
 .btn{    
@@ -245,5 +253,115 @@ main{
 /* testing mode  */
 .testing{
     height: 444px;
+}
+
+
+
+
+/* media queries for laptop, tablet and phone */
+
+@media screen and (max-width : 1075PX){
+    .container{
+        overflow: hidden;
+    }
+
+   .logBtn{
+    object-fit: fill;
+    flex-wrap: wrap-reverse;
+    overflow: visible;
+   }
+
+   .productsec .logBtn .demologin_btn{
+    width: 263px;
+    }
+}
+
+    @media screen and (max-width : 955px) {
+        .navlinks{
+            /* display: none; */
+            position: absolute;
+            flex-direction: column;
+            top: 15%;
+            background-color: #ffffff;
+            width: 100%;
+            padding-block: 30px;
+            /* opacity: 0; */
+            left: -100%;
+            transition: 1s ease
+
+        }
+
+        .navlinks.active{
+            /* opacity: 1; */
+            left: 0%;
+        }
+        
+
+        
+        
+        .menubar{
+            display: block;
+           
+        }
+        
+    }
+
+    @media screen and (max-width : 735px) {
+        .headerSec .heading{
+            font-size: 32px;
+        }
+        .headerSec .para {
+            width: 42%;
+        }
+        
+        .news{
+            flex-wrap: wrap;
+        }
+
+        .nepalGovr{
+            flex-wrap: wrap;
+        }
+        .nepalgovr_img{
+            width: 80%;
+            margin-top: 34px;
+        }
+
+        
+    }
+
+    @media screen  and (max-width: 450px){
+
+        .navbar{
+            gap: 6rem;
+        }
+
+        .mainlogo {
+            width: 17%;
+        }
+
+      .headerSec .logBtn{
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 34px;
+      }
+
+
+    .headerSec .para {
+        width: 72%;
+    }
+    .logBtn{
+        display: flex;
+        flex-direction: column;
+        gap: 23px;
+        flex-wrap: wrap;
+    }
+    .login_btn {
+        padding: 16px 56px;
+        
+    }
+
+
+    
 }
 

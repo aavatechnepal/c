@@ -23,27 +23,39 @@
 
         <form action="/createChart" method="post">
           <input type="text" name="description"id=""placeholder="Description" autocomplete="off"/>
-          <input type="text" name="account1" id="" placeholder="Account1" autocomplete="off" />
-          {{! <select name="" id="">
-                    <option value="" name="account1">SPL</option>
-                    <option value="" name="account1">SFL</option>
-                    <option value="" name="account1">sdr</option>
-                    <option value="" name="account1">demo</option>
-                </select> }}
-          <input type="text" name="account2" id="" placeholder="Account2" autocomplete="off" />
+          {{!-- <input type="text" name="account1" id="" placeholder="Account1" autocomplete="off" /> --}}
+
+           <select name="" id="">
+                    <option id="spl" value="account1" name="account1">SPL</option>
+                    <option id="sfl" value="account1" name="account2">SFL</option>
+
+                </select>
+
+         
+                {{!-- <details>
+                  <summary>Account Type 1</summary>
+                  <h3 id="spl" >SPL</h3>
+                  <h3 id="sfl">SFL</h3>
+                </details>
+                 --}}
+
+                <div id="showdata"></div>
+
+          {{!-- <input type="text" name="account2" id="" placeholder="Account2" autocomplete="off" />
+          <input type="text" name="account3" id="" placeholder="Account3" autocomplete="off" /> --}}
           {{! <select name="" id="">
                     <option value="" name="account2">Assest</option>
                     <option value="" name="account2">Creditors</option>
                     <option value="" name="account2">Debtors</option>
                     <option value="" name="account2">adding more</option>
                 </select> }}
-          <button class="addBtn" type="submit">Add</button>
+          <button class="addBtn" type="submit">Add Data</button>
         </form>
 
         <div class="message">
           <p class="msg">{{message}}</p>
           <p class="error">{{error}}</p>
-          <a href="/listchart">See the chart of Account list</a>
+          <a class="see_chart" href="/listchart"> 👉 See the chart of Account list</a> 
         </div>
       </div>
 
@@ -118,6 +130,28 @@
                 {{/each}}
             </tbody>
         </table> --}}
+
+
+        <script>
+          const spl = document.getElementById('spl');
+          const sfl = document.getElementById('sfl');
+          const showdata = document.getElementById("showdata");
+
+        spl.addEventListener('click',()=>{
+          showdata.innerHTML = `
+          <details>
+                  <h3 id="spl">Sales</h3>
+                  <h3 id="sfl">Income</h3>
+                  <h3 id="sfl">Cost Of Sales</h3>
+                  <h3 id="sfl">Expenses</h3>
+              
+                </details>
+          
+          `
+        })
+
+
+        </script>
 
   </body>
 
